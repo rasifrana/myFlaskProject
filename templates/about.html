@@ -1,0 +1,64 @@
+{% extends "base.html" %} {% block content %}
+
+<div class="container">
+  <h2 class="bg-secondary text-center">{{page_title}}</h2>
+  <p>
+    Hook Lighthouse is one of the most fascinating examples of medieval
+    architecture in Ireland. The tower stands four stories high with walls up to
+    4m thick. The tower itself consists of three rib-vaulted chambers in the
+    lower tier, while the upper, narrower section would have carried the warning
+    beacon. These two tiers are connected with a mural (within the wall)
+    stairway of 115 steps. The tower was constructed of local limestone and the
+    original building survives intact. The first tier is 13m in diameter at the
+    base and has three storeys, each with its original 13th-century stone
+    fireplace. In the thickness of the wall there are a number of mural
+    chambers, including two garderobes (toilets). The upper tier is 6m in
+    diameter: originally it supported the beacon fire, which was later replaced
+    by the lantern.
+  </p>
+
+  {% for member in company %}
+  <div class="row featurette mt-5">
+    {% if loop.index % 2 != 0 %}
+    <div class="col-md-7 text-center">
+      <h3>
+        <a href="/about/{{ member.url }}">
+          {{loop.index}} . {{ member.name }}
+        </a>
+      </h3>
+      <p>
+        {{member.description }}
+      </p>
+    </div>
+
+    <div class="col-md-5">
+      <img class="img-fluid rounded" src="{{member.image_source}}" alt="" />
+    </div>
+
+    {% else %}
+
+    <div class="col-md-5">
+      <img class="img-fluid rounded" src="{{member.image_source}}" alt="" />
+    </div>
+
+    <div class="col-md-7 text-center">
+      <h3>
+        <a href="/about/{{ member.url }}">
+          {{loop.index}} . {{ member.name }}
+        </a>
+      </h3>
+      <p>
+        {{member.description }}
+      </p>
+    </div>
+
+    {% endif %}
+  </div>
+
+  {% if loop.index!= 5 %}
+  <hr class="featurette-divider" />
+
+  {% endif %} {% endfor %}
+</div>
+
+{% endblock %}

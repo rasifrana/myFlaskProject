@@ -1,0 +1,18 @@
+{% extends "base.html" %} {% block content %}
+
+<div class="row featurette mt-5">
+  <div class="col-md-7 text-center">
+    <h3>
+      {{member["name"]}}
+    </h3>
+    <p>
+      {{member.description }}
+    </p>
+  </div>
+
+  <div class="col-md-5">
+    <img class="img-fluid rounded" src="{{member['image_source']}}" alt="" />
+  </div>
+</div>
+
+{% endblock %}
